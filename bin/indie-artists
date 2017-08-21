@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require "../lib/indie_artists"
+require_relative "../config/environment.rb"
 
-IndieArtists::CLI.new.call
+CurrentlyTrending::CLI.new.call

@@ -13,7 +13,7 @@ class CurrentlyTrending::CLI
   end
 
   def list_artists
-    puts "Indie Artist of the past two weeks:"
+    puts "New bands of the past two weeks:"
     puts ""
     CurrentlyTrending::Artist.all.each.with_index(1) do |artist, i|
       puts "#{i}. #{artist.name}"
@@ -41,7 +41,7 @@ class CurrentlyTrending::CLI
 
   def goodbye
     puts ""
-    puts "Check back another time to see new artists of the week!"
+    puts "Check back another time to see new bands of the week!"
   end
 
 end

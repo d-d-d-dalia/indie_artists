@@ -27,9 +27,11 @@ class CurrentlyTrending::CLI
     input = gets.strip
     if input == "1"
       puts CurrentlyTrending::Artist.all[0].desc
+      puts ""
       start
     elsif input == "2"
       puts CurrentlyTrending::Artist.all[1].desc
+      puts ""
       start
     elsif input == "exit"
       goodbye

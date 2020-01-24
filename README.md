@@ -1,8 +1,6 @@
 # IndieArtists
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/indie_artists`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is just a little gem to demo how to scrape data from a webpage, use it to create Ruby objects, show the data in those objects to a user, and allow a user to interact with the data through a command line.
 
 ## Installation
 

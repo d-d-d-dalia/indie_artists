@@ -16,33 +16,25 @@ class CurrentlyTrending::CLI
     puts "New bands of the past two weeks:"
     puts ""
     CurrentlyTrending::Artist.all.each.with_index(1) do |artist, i|
+      #binding.pry
       puts "#{i}. #{artist.name}"
-      puts ""
     end
   end
 
   def make_selection
-    puts "Type the number of the artist for more info, or exit to conclude your query."
+    puts "Type the number of the artist for more info, or exit to conclude your query. To see the list again, and make another selection, type more."
     puts ""
     input = gets.strip
-    if input == "1"
-      puts CurrentlyTrending::Artist.all[0].desc
-      puts ""
-      start
-    elsif input == "2"
-      puts CurrentlyTrending::Artist.all[1].desc
-      puts ""
-      start
-    elsif input == "exit"
+    if input == "exit"
       goodbye
+    elsif input == "more"
+       start
     else
-      puts "invalid input"
-      start
+      puts CurrentlyTrending::Artist.all[input.to_i-1].desc
     end
   end
 
   def goodbye
-    puts ""
     puts "Check back another time to see new bands of the week!"
   end
 

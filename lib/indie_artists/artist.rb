@@ -1,6 +1,6 @@
 class CurrentlyTrending::Artist
 
-  attr_accessor :name, :followers, :following, :tracks, :desc
+  attr_accessor :name, :desc
   @@all = []
 
   def initialize(name, desc)

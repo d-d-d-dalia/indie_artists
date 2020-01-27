@@ -1,5 +1,3 @@
-#our CLI controller
-
 class CurrentlyTrending::CLI
 
   def call
@@ -16,26 +14,57 @@ class CurrentlyTrending::CLI
     puts "New bands of the past two weeks:"
     puts ""
     CurrentlyTrending::Artist.all.each.with_index(1) do |artist, i|
-      #binding.pry
       puts "#{i}. #{artist.name}"
     end
+    make_selection
   end
 
   def make_selection
-    puts "Type the number of the artist for more info, or exit to conclude your query. To see the list again, and make another selection, type more."
+    #binding.pry
+    puts "Type the number of the artist for more info. To exit, type exit."
     puts ""
+    #binding.pry
     input = gets.strip
-    if input == "exit"
-      goodbye
-    elsif input == "more"
-       start
-    else
-      puts CurrentlyTrending::Artist.all[input.to_i-1].desc
+    # if input == "exit"
+    #   #binding.pry
+    #   goodbye
+    # end
+    # if input != "exit" && input.to_i <= CurrentlyTrending::Artist.all.length && input.to_i > 0
+    #   #binding.pry
+    #   puts ""
+    #   puts CurrentlyTrending::Artist.all[input.to_i-1].desc
+    #   puts ""
+    #   #binding.pry
+    #   list_artists 
+    # elsif input.to_i > CurrentlyTrending::Artist.all.length || input.to_i < 0
+    #   puts ""
+    #   puts "INVALID INPUT. Please try again."
+    #   puts ""
+    #   make_selection
+    # end
+    if input.to_i > CurrentlyTrending::Artist.all.length || input.to_i < 1 && input != "more" && input != "exit"
+      puts ""
+      puts "INVALID INPUT. Try again."
     end
+    if input.to_i.between?(1, CurrentlyTrending::Artist.all.length)
+      puts ""
+      puts CurrentlyTrending::Artist.all[input.to_i-1].desc
+      puts ""
+      list_artists
+    elsif input == "more"
+      list_artists
+    elsif input == "exit"
+      #binding.pry
+      #input = "exit"
+      goodbye
+    end
+
   end
 
   def goodbye
+    puts ""
     puts "Check back another time to see new bands of the week!"
+    exit
   end
 
 end

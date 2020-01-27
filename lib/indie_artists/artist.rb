@@ -29,8 +29,9 @@ class CurrentlyTrending::Artist
     artists = doc.css(".fc-item__content")
     artists.each do |artist|
       text = artist.text.split(")")
+      textnotpublished = text[1].split("Published")
       moretext = text[0].gsub("New band of the week:", "").split("(")
-      newartist = self.create(moretext[0], text[1].strip)
+      newartist = self.create(moretext[0].strip, textnotpublished[0].strip)
       #binding.pry
     end
   end

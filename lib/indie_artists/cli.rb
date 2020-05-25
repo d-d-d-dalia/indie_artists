@@ -39,7 +39,6 @@ class CurrentlyTrending::CLI
     elsif input == "exit"
       goodbye
     end
-
   end
 
   def goodbye

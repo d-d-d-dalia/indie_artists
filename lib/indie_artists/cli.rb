@@ -21,7 +21,7 @@ class CurrentlyTrending::CLI
 
   def make_selection
     puts ""
-    puts "Type the number of the artist for more info. To exit, type exit."
+    puts "Type the number of the artist for more info. To see the list again, type more. To exit, type exit."
     puts ""
     input = gets.strip
     if input.to_i > CurrentlyTrending::Artist.all.length || input.to_i < 1 && input != "more" && input != "exit"
@@ -32,7 +32,7 @@ class CurrentlyTrending::CLI
       puts ""
       puts CurrentlyTrending::Artist.all[input.to_i-1].desc
       puts ""
-      list_artists
+      make_selection
     elsif input == "more"
       puts ""
       list_artists

@@ -1,6 +1,6 @@
 # IndieArtists
 
-This is a Ruby gem demonstrating how to scrape data from a webpage, use it to create Ruby objects, show the data in those objects to a user, and allow a user to interact with the data through a command line.
+Ruby gem demonstrating how to scrape data from a webpage, use it to create Ruby objects, show the data in those objects to a user, and allow a user to interact with the data through a command line.
 
 ## Installation
 
